@@ -19,4 +19,8 @@ private:
 	Rational* setM(int m);
 	Rational* setN(int n);
 
+	Rational& operator+(Rational);
+	Rational & operator*(Rational inRat);
+
+
 };
