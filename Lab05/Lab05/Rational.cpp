@@ -80,7 +80,8 @@ Rational& Rational::operator+(const Rational rat) const
 
 	if (this->_n == rat._n)
 	{
-		temp.setM(this->_m)->setN(this->_n);
+		temp.setM(this->_m + rat.getM())->setN(this->_n);
+		temp.minimize();
 		return temp;
 	}
 	else
@@ -88,8 +89,8 @@ Rational& Rational::operator+(const Rational rat) const
 		tempN = this->_n * rat._n;
 	}
 
-
-	return Rational();
+	temp.minimize();
+	return temp;
 }
 
 // (M/N)
@@ -97,6 +98,8 @@ Rational& Rational::operator*(const Rational inRat) const
 {
 	Rational* ret = new Rational;
 	ret->setM(this->_m * (inRat._m))->setN(this->_n * (inRat._n));
+
+	ret->minimize();
 	return *ret;
 }
 
@@ -109,7 +112,8 @@ Rational & Rational::operator/(const Rational inRat) const
 	temp.setM(x);
 	x = this->_n * inRat.getM();
 	temp.setN(x);
-	
+
+	temp.minimize();
 	return temp;
 
 }
@@ -122,7 +126,7 @@ Rational & Rational::operator+ (const int num) const
 	
 	x = this->_m + (num * this->_n);
 	temp.setM(x);
-	
+	temp.minimize();
 	return temp;
 }
 
@@ -148,7 +152,11 @@ int Rational:: gcd(int a, int b)
 
 void Rational::minimize()
 {
-	gcd(this->_m,)
+	int num;
+	num = gcd(this->_m, this->_n);
+
+	setM(this->_m / num);
+	setN(this->_n / num);
 
 }
 
