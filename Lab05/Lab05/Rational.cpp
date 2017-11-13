@@ -40,12 +40,12 @@ Rational::~Rational()
 {
 }
 
-int Rational::getM()
+int Rational::getM() const
 {
 	return _m;
 }
 
-int Rational::getN()
+int Rational::getN() const
 {
 	return _n;
 }
@@ -72,7 +72,7 @@ Rational * Rational::setN(int n)
 
 
 // (M/N) 
-Rational& Rational::operator+(Rational rat)
+Rational& Rational::operator+(const Rational rat) const
 {
 	Rational temp;
 	int x = 0, y = 0;
@@ -93,7 +93,7 @@ Rational& Rational::operator+(Rational rat)
 }
 
 // (M/N)
-Rational& Rational::operator*(Rational inRat)
+Rational& Rational::operator*(const Rational inRat) const
 {
 	Rational* ret = new Rational;
 	ret->setM(this->_m * (inRat._m))->setN(this->_n * (inRat._n));
@@ -101,7 +101,7 @@ Rational& Rational::operator*(Rational inRat)
 }
 
 // (/M/N)
-Rational & Rational::operator/(Rational inRat)
+Rational & Rational::operator/(const Rational inRat) const
 {
 	Rational temp;
 	int x;
@@ -114,6 +114,42 @@ Rational & Rational::operator/(Rational inRat)
 
 }
 
+// (M/N)
+Rational & Rational::operator+ (const int num) const
+{
+	Rational temp;
+	int x;
+	
+	x = this->_m + (num * this->_n);
+	temp.setM(x);
+	
+	return temp;
+}
 
+int Rational:: gcd(int a, int b)
+{
+	int temp, GCD;
+	if (a<b)
+	{
+		temp = a;
+		a = b;
+		b = temp;
+	}
+	for (int i = b; i>0; i--)
+	{
+		if (a%i == 0 && b%i == 0)
+		{
+			GCD = i;
+			return GCD;
+		}
+	}
+
+}
+
+void Rational::minimize()
+{
+	gcd(this->_m,)
+
+}
 
 
