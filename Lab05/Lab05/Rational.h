@@ -21,6 +21,6 @@ private:
 
 	Rational& operator+(Rational);
 	Rational & operator*(Rational inRat);
-
+	Rational& operator/(Rational inRat);
 
 };

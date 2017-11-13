@@ -99,3 +99,21 @@ Rational& Rational::operator*(Rational inRat)
 	ret->setM(this->_m * (inRat._m))->setN(this->_n * (inRat._n));
 	return *ret;
 }
+
+// (/M/N)
+Rational & Rational::operator/(Rational inRat)
+{
+	Rational temp;
+	int x;
+	x = this->_m * inRat.getN();
+	temp.setM(x);
+	x = this->_n * inRat.getM();
+	temp.setN(x);
+	
+	return temp;
+
+}
+
+
+
+
