@@ -37,6 +37,6 @@ private:
 
 
 	friend ostream &operator << (ostream &output, const Rational&);
-	//friend istream& operator >> (ostream &input, const Rational&);
+	friend istream& operator >>(istream&is, Rational &A);
 
 };

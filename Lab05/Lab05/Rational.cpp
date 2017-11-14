@@ -182,9 +182,15 @@ ostream & operator<<(ostream &output, const Rational& inRat)
 	return output;
 }
 
-/*istream & operator>>(ostream & input, const Rational & inRat)
+istream& operator >>(istream&is, Rational &A)
 {
-	
+	int x;
+	is >> A._m;
+	is >> x;
 
+	A._n = x;
+
+	
+	A.minimize();
+	return is;
 }
-*/
