@@ -1,3 +1,6 @@
+#include <iostream>
+
+using namespace std;
 
 class Rational
 {
@@ -16,6 +19,11 @@ private:
 	Rational(int, int);
 	~Rational();
 
+	
+
+	Rational(const Rational&);
+	const Rational &operator= (const Rational&);
+
 	int getM() const;
 	int getN() const;
 
@@ -27,5 +35,8 @@ private:
 	Rational& operator/(const Rational) const;
 	Rational& operator + (const int) const;
 
+
+	friend ostream &operator << (ostream &output, const Rational&);
+	//friend istream& operator >> (ostream &input, const Rational&);
 
 };

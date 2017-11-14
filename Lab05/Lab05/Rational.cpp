@@ -2,7 +2,9 @@
 
 #include "Rational.h"
 #include <iostream>
+#include <iomanip>
 using namespace std;
+using std::setw;
 
 void Rational::minNum()
 {
@@ -38,6 +40,18 @@ Rational::Rational(int m, int n)
 
 Rational::~Rational()
 {
+}
+
+Rational::Rational(const Rational& inRat)
+{
+	this->_m = inRat.getM();
+	this->_n = inRat.getN();
+}
+
+const Rational & Rational::operator=(const Rational & inRat)
+{
+	Rational temp(inRat);
+	return temp;
 }
 
 int Rational::getM() const
@@ -160,4 +174,17 @@ void Rational::minimize()
 
 }
 
+// (M/N)
+ostream & operator<<(ostream &output, const Rational& inRat)
+{
+	output << inRat.getM() << "/" << inRat.getN() << endl;
 
+	return output;
+}
+
+/*istream & operator>>(ostream & input, const Rational & inRat)
+{
+	
+
+}
+*/
