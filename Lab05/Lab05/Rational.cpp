@@ -144,6 +144,15 @@ Rational & Rational::operator+ (const int num) const
 	return temp;
 }
 
+Rational & Rational::operator*=(const Rational& inRat)
+{
+	Rational temp;
+	this->_m = this->_m * inRat._m;
+	this->_n = this->_n * inRat._n;
+
+	return *this;
+}
+
 int Rational:: gcd(int a, int b)
 {
 	int temp, GCD;

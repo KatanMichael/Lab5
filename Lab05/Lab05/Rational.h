@@ -34,6 +34,7 @@ private:
 	Rational & operator*(const Rational) const;
 	Rational& operator/(const Rational) const;
 	Rational& operator + (const int) const;
+	Rational& operator*=(const Rational&);
 
 
 	friend ostream &operator << (ostream &output, const Rational&);
